@@ -1,0 +1,22 @@
+All times have been calculated on a 2012 MacBook Air.
+
+Check the time difference between prototype to produce words from signatures and the list dictionary. The signatures used are in the file signaturesProto.txt.
+- Real Time for the PredictivePrototype is 31.149s
+- Real Time for the ListDictionary is 2.263s
+ListDictionary returns words from signatures much faster if a large amount of signatures need to be returned as words.
+
+
+All time comparisons are average over 10 builds of the dictionary:
+- Real Time for the construction of the List Dictionary is 2.165s
+- Real Time for the construction of the Map Dictionary is 2.878s
+- Real Time for the construction of the Tree Dictionary is 6.818s
+As can be seen the construction for the ListDictionary is faster, but when returning matching words to a signature. I would predict MapDictionary and TreeDictionary should have faster look-up speeds, and therefore on large files will return words in less time.
+
+
+Times to return words using the signatures listed in the file signatures.txt, have been listed below for all 3 methods. signatures.txt was created using some wikipedia pages on Roger Federer and Andy Murray, and converted the words in these documents to signatures using wordToSignature method. 
+All real times below consist of the construction and the returning of matching words for all signatures.
+- Real Time for the List Dictionary is 3.810s
+- Real Time for the Map Dictionary is 4.386s
+- Real Time for the Tree Dictionary is 14.799s
+The signatures in signatures.txt was the largest number of arguments I could enter in the command line so I can't test for programs for a larger number of signatures. As can be seen in the results the Map Dictionary has returned the words faster than the List Dictionary as the difference between construction times is 0.713s, whereas the time difference after returning signatures is 0.576s showing the words have been returned from the Map 0.137s faster. TreeDictionary could maybe be improved by changing some Strings used into StringBuffers as Strings are immutable, although I did try this and the program ran slightly slower so in this build I have left it as a String. Also TreeDictionary will be slower as it has to cut full words to prefixes before returning so the returned word is the same length as the signature.
+

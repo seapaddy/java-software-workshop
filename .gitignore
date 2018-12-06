@@ -1,0 +1,17 @@
+
+# directories
+/bin
+*.settings
+
+# misc
+.DS_Store
+.
+..
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.class
+*.zip
+*.classpath
+*.project
